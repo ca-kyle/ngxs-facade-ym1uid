@@ -1,0 +1,7 @@
+/* Add application styles & imports to this file! */
+
+.hero__delete {
+  cursor: pointer;
+  color: blueviolet;
+  text-decoration: underline;
+}

@@ -1,0 +1,24 @@
+<h1>Heroes <button (click)="heroes.loadAll()">download from server</button></h1>
+<ng-container *ngIf="heroes.data$ | async as heroesList">
+  <div class="heroes__content" *ngFor="let hero of heroesList">
+    <p class="hero__item">
+      <b>Hero name</b>: {{ hero.name }}, 
+      <b>saying</b>: {{ hero.saying }}
+      <span class="hero__delete" (click)="heroes.deleteHero(hero.id)">delete</span>
+    </p>
+  </div>
+</ng-container>
+
+<div class="heroes__actions">
+  <input placeholder="Hero name" #name />
+  <input placeholder="Hero saying" #saying />
+  <button (click)="heroes.addHero(name.value, saying.value)">Create hero</button>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+<p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
